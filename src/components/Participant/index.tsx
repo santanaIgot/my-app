@@ -1,17 +1,21 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
+//criamos um objeto para tipar 
+type Props = {
+    name:String;
+    onRemove: () => void;
+}
 
-export function Participant() {
-    function handleParticipantRemove() {
-        alert('Participante removido')
-    }
+
+export function Participant({name,onRemove}: Props) {
+  
     return(
         <View style={styles.container}>
             <Text style={styles.name}>
-                Igor Ferreira
+                 {name}
             </Text>
-         <TouchableOpacity style={styles.button} onPress={handleParticipantRemove}>
+         <TouchableOpacity style={styles.button} onPress={onRemove}>
          <Text style={styles.buttonText}>-</Text>
         </TouchableOpacity>
         </View>
